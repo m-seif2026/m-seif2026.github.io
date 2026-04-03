@@ -67,11 +67,16 @@
       border: 1px solid #e2e8f0;
     }
 
+    .buttons {
+      margin-top: 10px;
+    }
+
     .buttons a {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       margin-right: 10px;
+      margin-top: 6px;
       padding: 8px 14px;
       border-radius: 20px;
       border: 1px solid #e2e8f0;
@@ -84,6 +89,11 @@
     .buttons a:hover {
       background: #0f766e;
       color: white;
+    }
+
+    .doc-group {
+      display: inline-flex;
+      gap: 6px;
     }
 
     .research-grid {
@@ -136,7 +146,6 @@
 
   <!-- PROFILE -->
   <div class="profile">
-    <!-- IMPORTANT: Make sure this file exists in your repo -->
     <img src="profile.jpg" alt="Mohamed Seif">
 
     <div>
@@ -149,6 +158,7 @@
       </p>
 
       <div class="buttons">
+
         <a href="https://scholar.google.com/citations?hl=en&user=SgoDfyQAAAAJ" target="_blank">
           <i class="ri-google-fill"></i> Scholar
         </a>
@@ -157,13 +167,17 @@
           <i class="ri-linkedin-box-fill"></i> LinkedIn
         </a>
 
-        <a href="cv.pdf" target="_blank">
-          <i class="ri-file-pdf-line"></i> CV
-        </a>
+        <!-- CV + Research Statement grouped -->
+        <div class="doc-group">
+          <a href="cv.pdf" target="_blank">
+            <i class="ri-file-pdf-line"></i> CV
+          </a>
 
-        <a href="research_statement.pdf" target="_blank">
-          <i class="ri-file-paper-2-line"></i> Research Statement
-        </a>
+          <a href="research_statement.pdf" target="_blank">
+            <i class="ri-file-paper-2-line"></i> Research Statement
+          </a>
+        </div>
+
       </div>
 
       <p>Email: mseif@princeton.edu</p>
@@ -184,7 +198,7 @@
   </p>
 
   <p>
-    More recently, I have been investigating statistical learning problems in large language models (LLMs),
+    More recently, I investigate statistical learning problems in large language models (LLMs),
     focusing on designing fine-grained watermarking algorithms that enable post-generation edit detection
     and ensure content integrity.
   </p>
