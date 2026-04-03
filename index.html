@@ -166,6 +166,57 @@
       color: var(--accent);
     }
 
+    .collab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .collab-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+    }
+
+    .collab-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .collab-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 20px;
+      flex: 0 0 auto;
+    }
+
+    .collab-title {
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .collab-subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 2px;
+    }
+
+    .collab-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
     .papers {
       display: grid;
       gap: 14px;
@@ -302,6 +353,7 @@
   <nav>
     <a href="#about">About</a>
     <a href="#research">Research</a>
+    <a href="#collaborations">Industry Collaborations</a>
     <a href="#news">News</a>
     <a href="#publications">Selected Papers</a>
     <a href="#talks">Talks</a>
@@ -354,7 +406,7 @@
     </p>
 
     <p>
-      More recently, I have been interested in statistical learning problems for large language models, with a focus on designing fine-grained watermarking algorithms that enable edit detection and strengthen content integrity. Broadly, my goal is to build reliable, scalable, and principled learning systems that bridge theoretical guarantees with real-world deployment.
+      More recently, I have been interested in statistical learning problems for large language models, with a focus on designing fine-grained watermarking algorithms that enable edit detection and strengthen content integrity. I also work closely with industry collaborators to connect theory with practice, including projects on private wireless network analytics, Wi-Fi sensing privacy, and AI-native communication systems.
     </p>
   </div>
 
@@ -384,6 +436,40 @@
     </div>
     <div class="research-item">
       <i class="ri-bar-chart-grouped-line"></i> Statistical Learning on LLMs
+    </div>
+  </div>
+
+  <h2 id="collaborations">Industry Collaborations</h2>
+
+  <div class="collab-grid">
+    <div class="collab-card">
+      <div class="collab-header">
+        <div class="collab-icon">
+          <i class="ri-building-4-line"></i>
+        </div>
+        <div>
+          <p class="collab-title">Nokia Bell Labs</p>
+          <div class="collab-subtitle">Artificial Intelligence Research Lab</div>
+        </div>
+      </div>
+      <p>
+        I have collaborated with Nokia Bell Labs on privacy-preserving network analytics and scalable graph learning methods. This includes work related to differentially private spectral clustering and efficient algorithms for network data analysis, bridging statistical learning theory with practical telecom systems.
+      </p>
+    </div>
+
+    <div class="collab-card">
+      <div class="collab-header">
+        <div class="collab-icon">
+          <i class="ri-radar-line"></i>
+        </div>
+        <div>
+          <p class="collab-title">MediaTek</p>
+          <div class="collab-subtitle">Wireless sensing and privacy</div>
+        </div>
+      </div>
+      <p>
+        I have been collaborating with MediaTek on privacy-preserving wireless sensing and next-generation AI over wireless systems. Recent efforts include protecting human activity signatures in Wi-Fi CSI feedback, studying privacy-utility tradeoffs in sensing pipelines, and developing practical mechanisms for trustworthy wireless intelligence.
+      </p>
     </div>
   </div>
 
