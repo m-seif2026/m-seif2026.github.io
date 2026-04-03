@@ -1,133 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mohamed Seif</title>
 
-  <!-- ICONS -->
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
 
   <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --accent: #0f766e;
+      --accent-soft: #ecfeff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Inter, system-ui, sans-serif;
-      background: #f8fafc;
-      color: #0f172a;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
     }
 
     header {
       position: sticky;
       top: 0;
-      background: white;
-      border-bottom: 1px solid #e2e8f0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
       padding: 15px 30px;
     }
 
+    nav {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
     nav a {
-      margin-right: 15px;
+      margin-right: 18px;
       text-decoration: none;
-      color: #475569;
+      color: var(--muted);
       font-size: 14px;
+      font-weight: 500;
     }
 
     nav a:hover {
-      color: black;
+      color: var(--accent);
     }
 
     .container {
       max-width: 1000px;
       margin: auto;
-      padding: 30px;
+      padding: 34px 30px 60px;
     }
 
     h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
+      font-size: 42px;
+      margin: 0 0 10px 0;
+      letter-spacing: -0.02em;
     }
 
     h2 {
-      margin-top: 40px;
-      border-bottom: 1px solid #e2e8f0;
-      padding-bottom: 5px;
+      margin-top: 44px;
+      margin-bottom: 16px;
+      font-size: 28px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    p {
+      margin-top: 0;
     }
 
     .profile {
       display: flex;
-      gap: 25px;
+      gap: 28px;
       align-items: center;
       flex-wrap: wrap;
     }
 
     .profile img {
-      width: 180px;
-      height: 180px;
+      width: 185px;
+      height: 185px;
       object-fit: cover;
-      border-radius: 20px;
-      border: 1px solid #e2e8f0;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: white;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .profile-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 14px;
     }
 
     .buttons {
-      margin-top: 10px;
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .buttons a {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      margin-right: 10px;
-      margin-top: 6px;
-      padding: 8px 14px;
-      border-radius: 20px;
-      border: 1px solid #e2e8f0;
+      gap: 7px;
+      padding: 9px 15px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
       text-decoration: none;
       font-weight: 600;
-      color: black;
+      color: var(--text);
+      background: white;
       transition: 0.2s ease;
     }
 
     .buttons a:hover {
-      background: #0f766e;
+      background: var(--accent);
       color: white;
+      border-color: var(--accent);
     }
 
-    .doc-group {
-      display: inline-flex;
-      gap: 6px;
+    .about-text {
+      max-width: 900px;
     }
 
     .research-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 15px;
-      margin-top: 15px;
+      margin-top: 10px;
     }
 
     .research-item {
       display: flex;
       align-items: center;
       gap: 12px;
-      background: white;
-      padding: 12px;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
+      background: var(--card);
+      padding: 14px 15px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
     }
 
     .research-item i {
       font-size: 20px;
-      color: #0f766e;
+      color: var(--accent);
     }
 
-    .pub {
-      margin-bottom: 15px;
+    .papers {
+      display: grid;
+      gap: 14px;
+    }
+
+    .paper-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 18px;
+      transition: 0.2s ease;
+    }
+
+    .paper-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .paper-icon {
+      flex: 0 0 auto;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 20px;
+    }
+
+    .paper-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .paper-meta {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .news {
+      padding-left: 20px;
     }
 
     .news li {
       margin-bottom: 8px;
     }
+
+    .talks {
+      padding-left: 20px;
+    }
+
+    .contact-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 560px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 22px;
+      flex: 0 0 auto;
+    }
+
+    .contact-label {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .contact-email a {
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .contact-email a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 26px 18px 50px;
+      }
+
+      header {
+        padding: 12px 18px;
+      }
+
+      .profile {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .profile img {
+        width: 155px;
+        height: 155px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      .contact-card {
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
-
 <body>
 
 <header>
@@ -135,147 +303,161 @@
     <a href="#about">About</a>
     <a href="#research">Research</a>
     <a href="#news">News</a>
-    <a href="#publications">Publications</a>
+    <a href="#publications">Selected Papers</a>
     <a href="#talks">Talks</a>
-    <a href="#service">Service</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <div class="container">
 
-  <!-- PROFILE -->
   <div class="profile">
-    <img src="profile.jpg" alt="Mohamed Seif">
+    <img src="profile.jpg" alt="Mohamed Seif" />
 
-    <div>
+    <div class="profile-text">
       <h1>Mohamed Seif</h1>
 
-      <p>
+      <div class="subtitle">
         Researcher in Wireless Systems and Machine Learning<br>
         Electrical and Computer Engineering<br>
         Princeton University
-      </p>
+      </div>
 
       <div class="buttons">
-
-        <a href="https://scholar.google.com/citations?hl=en&user=SgoDfyQAAAAJ" target="_blank">
+        <a href="https://scholar.google.com/citations?hl=en&user=SgoDfyQAAAAJ" target="_blank" rel="noreferrer">
           <i class="ri-google-fill"></i> Scholar
         </a>
 
-        <a href="https://www.linkedin.com/in/mohamed-seif-9942aa122/" target="_blank">
+        <a href="https://www.linkedin.com/in/mohamed-seif-9942aa122/" target="_blank" rel="noreferrer">
           <i class="ri-linkedin-box-fill"></i> LinkedIn
         </a>
 
-        <!-- CV + Research Statement grouped -->
-        <div class="doc-group">
-          <a href="cv.pdf" target="_blank">
-            <i class="ri-file-pdf-line"></i> CV
-          </a>
+        <a href="cv.pdf" target="_blank" rel="noreferrer">
+          <i class="ri-file-pdf-line"></i> CV
+        </a>
 
-          <a href="research_statement.pdf" target="_blank">
-            <i class="ri-file-paper-2-line"></i> Research Statement
-          </a>
-        </div>
-
+        <a href="research_statement.pdf" target="_blank" rel="noreferrer">
+          <i class="ri-file-paper-2-line"></i> Research Statement
+        </a>
       </div>
-
-      <p>Email: mseif@princeton.edu</p>
     </div>
   </div>
 
-  <!-- ABOUT -->
   <h2 id="about">About</h2>
+  <div class="about-text">
+    <p>
+      I am a researcher in the Department of Electrical and Computer Engineering at Princeton University. I received my Ph.D. in Electrical and Computer Engineering from the University of Arizona in 2022.
+    </p>
 
-  <p>
-    I am a researcher at Princeton University working with Andrea Goldsmith and H. Vincent Poor.
-    I received my Ph.D. in Electrical and Computer Engineering from the University of Arizona in 2022.
-  </p>
+    <p>
+      My research lies at the intersection of information theory, machine learning, wireless communications, and signal processing. I develop mathematically grounded methods for privacy-preserving and communication-efficient AI systems, with interests spanning distributed learning, graph and network data analysis, edge intelligence, and trustworthy generative AI.
+    </p>
 
-  <p>
-    My research lies at the intersection of information theory, machine learning, and wireless systems,
-    with a focus on privacy-preserving and communication-efficient AI.
-  </p>
+    <p>
+      More recently, I have been interested in statistical learning problems for large language models, with a focus on designing fine-grained watermarking algorithms that enable edit detection and strengthen content integrity. Broadly, my goal is to build reliable, scalable, and principled learning systems that bridge theoretical guarantees with real-world deployment.
+    </p>
+  </div>
 
-  <p>
-    More recently, I investigate statistical learning problems in large language models (LLMs),
-    focusing on designing fine-grained watermarking algorithms that enable post-generation edit detection
-    and ensure content integrity.
-  </p>
-
-  <!-- RESEARCH -->
   <h2 id="research">Research Interests</h2>
 
   <div class="research-grid">
     <div class="research-item">
       <i class="ri-shield-keyhole-line"></i> Differential Privacy
     </div>
-
     <div class="research-item">
       <i class="ri-signal-tower-line"></i> Wireless Systems
     </div>
-
     <div class="research-item">
       <i class="ri-cpu-line"></i> MIMO / OFDM / Wi-Fi
     </div>
-
     <div class="research-item">
       <i class="ri-share-circle-line"></i> Distributed Inference
     </div>
-
     <div class="research-item">
       <i class="ri-node-tree"></i> Graph Learning
     </div>
-
     <div class="research-item">
       <i class="ri-robot-line"></i> Trustworthy AI
     </div>
-
     <div class="research-item">
       <i class="ri-file-text-line"></i> LLM Watermarking
     </div>
+    <div class="research-item">
+      <i class="ri-bar-chart-grouped-line"></i> Statistical Learning on LLMs
+    </div>
   </div>
 
-  <!-- NEWS -->
   <h2 id="news">News</h2>
   <ul class="news">
-    <li>2026 – DySPAN paper accepted</li>
-    <li>2026 – LLM watermarking research ongoing</li>
-    <li>2025 – Publications in IEEE venues</li>
+    <li>2026 – DySPAN paper accepted.</li>
+    <li>2026 – Ongoing work on watermarking and edit detection for LLM outputs.</li>
+    <li>2025 – Continued research across privacy, wireless systems, graph learning, and trustworthy AI.</li>
   </ul>
 
-  <!-- PUBLICATIONS -->
-  <h2 id="publications">Selected Publications</h2>
+  <h2 id="publications">Selected Recent Papers</h2>
 
-  <div class="pub">
-    <b>Differentially Private Online Community Detection</b><br>
-    IEEE TIFS, 2025
+  <div class="papers">
+    <div class="paper-card">
+      <div class="paper-icon"><i class="ri-wifi-line"></i></div>
+      <div>
+        <div class="paper-title">Protecting Human Activity Signatures in Compressed IEEE 802.11 CSI Feedback</div>
+        <div class="paper-meta">IEEE DySPAN, 2026</div>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <div class="paper-icon"><i class="ri-group-line"></i></div>
+      <div>
+        <div class="paper-title">Differentially Private Online Community Detection for Censored Block Models: Algorithms and Fundamental Limits</div>
+        <div class="paper-meta">IEEE Transactions on Information Forensics &amp; Security, 2025</div>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <div class="paper-icon"><i class="ri-ai-generate"></i></div>
+      <div>
+        <div class="paper-title">Collaborative Inference over Wireless Channels with Feature Differential Privacy</div>
+        <div class="paper-meta">IEEE Journal on Selected Areas in Communications, 2025</div>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <div class="paper-icon"><i class="ri-node-tree"></i></div>
+      <div>
+        <div class="paper-title">Differentially Private Sketch-and-Solve for Community Detection via Semidefinite Programming</div>
+        <div class="paper-meta">IEEE Journal on Selected Areas in Information Theory, 2024</div>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <div class="paper-icon"><i class="ri-brain-line"></i></div>
+      <div>
+        <div class="paper-title">Differentially Private Community Detection for Stochastic Block Models</div>
+        <div class="paper-meta">ICML 2022 · Spotlight Presentation</div>
+      </div>
+    </div>
   </div>
 
-  <div class="pub">
-    <b>Privacy-Preserving CSI Feedback</b><br>
-    DySPAN, 2026
-  </div>
-
-  <!-- TALKS -->
-  <h2 id="talks">Talks</h2>
-  <ul>
-    <li>Wireless for Machine Learning</li>
-    <li>Differential Privacy in NextG Systems</li>
-    <li>Trustworthy AI</li>
+  <h2 id="talks">Selected Talks</h2>
+  <ul class="talks">
+    <li>IEEE International Symposium on Information Theory, 2025</li>
+    <li>Stanford University, invited talk, 2024</li>
+    <li>Intel Wireless Systems Research Lab, invited talk, 2024</li>
+    <li>Nokia Bell Labs AI Research Lab, invited talk, 2024</li>
   </ul>
 
-  <!-- SERVICE -->
-  <h2 id="service">Service</h2>
-  <ul>
-    <li>Mentoring students</li>
-    <li>Reviewer for ML and wireless conferences</li>
-    <li>Academic service</li>
-  </ul>
-
-  <!-- CONTACT -->
   <h2 id="contact">Contact</h2>
-  <p>Email: mseif@princeton.edu</p>
+  <div class="contact-card">
+    <div class="contact-icon">
+      <i class="ri-mail-send-line"></i>
+    </div>
+    <div>
+      <div class="contact-label">Email</div>
+      <div class="contact-email">
+        <a href="mailto:mseif@princeton.edu">mseif@princeton.edu</a>
+      </div>
+    </div>
+  </div>
 
 </div>
 
