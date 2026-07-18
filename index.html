@@ -310,9 +310,53 @@
       text-decoration: none;
     }
 
-    .contact-email a:hover {
-      color: var(--accent);
-    }
+   .contact-wrapper{
+
+    display:flex;
+
+    gap:24px;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+}
+
+.lab-logo-card{
+
+    flex:1;
+
+    min-width:220px;
+
+    max-width:260px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:18px;
+
+    box-shadow:0 8px 24px rgba(15,23,42,.05);
+
+}
+
+.lab-logo-card img{
+
+    width:100%;
+
+    height:auto;
+
+    object-fit:contain;
+
+}
 
 
 /* ===================================
@@ -628,18 +672,32 @@
     <li>U.S. Air Force Research Lab, talk, 2024</li>
   </ul>
 
-  <h2 id="contact">Contact</h2>
-  <div class="contact-card">
-    <div class="contact-icon">
-      <i class="ri-mail-send-line"></i>
+<h2 id="contact">Contact</h2>
+
+<div class="contact-wrapper">
+
+    <div class="contact-card">
+        <div class="contact-icon">
+            <i class="ri-mail-send-line"></i>
+        </div>
+
+        <div>
+            <div class="contact-label">Email</div>
+
+            <div class="contact-email">
+                <a href="mailto:mseif@princeton.edu">
+                    mseif@princeton.edu
+                </a>
+            </div>
+        </div>
     </div>
-    <div>
-      <div class="contact-label">Email</div>
-      <div class="contact-email">
-        <a href="mailto:mseif@princeton.edu">mseif@princeton.edu</a>
-      </div>
+
+    <div class="lab-logo-card">
+        <img src="images/nile-logo-ou.png"
+             alt="NILE Research Lab Logo">
     </div>
-  </div>
+
+</div>
 
 </div>
 
